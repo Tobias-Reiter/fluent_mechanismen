@@ -787,7 +787,7 @@
 	)
 
 	(tar fluid
-		(chemical-formula . tar)
+		(chemical-formula . c2.35h3.97o1.53)
 		(specific-heat (constant . 1800.) (polynomial piecewise-polynomial (0. 1000. 3540.467688295681 20.82930278939629 -0.01690813283593517 5.829455919223441e-06 -7.240751772554599e-10) (1000. 5000. 9693.176217167802 4.463332861454872 -0.00193693573007686 3.741534608662581e-07 -2.670339396193796e-11)))
 		(molecular-weight (constant . 56.6572))
 		(formation-enthalpy (constant . -219000000.))
