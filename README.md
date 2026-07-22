@@ -2,18 +2,6 @@
 
 Reaction mechanism(s) for **ANSYS Fluent** (Fluent User-Defined Material Database / UDF material format) in Scheme.
 
-## Reaction overview
-
-The exact stoichiometry, reaction orders, Arrhenius parameters and eddy-dissipation mixing rates are defined in the respective `.scm` files. The overview below is intentionally compact.
-
-| Mechanism | Compact reaction scope |
-| --- | --- |
-| `glarborg148_edm` | Detailed gas-phase combustion and nitrogen chemistry, plus added global tar cracking / char conversion entries in the Fluent material database. Individual reactions are not listed here because the mechanism is large. |
-| `li37` | Reduced NOx chemistry for solid-fuel combustion: hydrocarbon oxidation, HCN/NH3/NO interconversion, thermal / prompt / fuel-N pathways and SNCR-relevant reactions. Individual reactions are not listed here because the mechanism is still comparatively large. |
-| `sch3step-edm` | 3 global steps: CH4 partial oxidation to CO/H2/H2O, CO oxidation to CO2, and H2 oxidation to H2O. |
-| `sch6step-edm` | 6 global steps: tar pseudo-species cracking, C2H4 oxidation, CH4 partial oxidation, char-to-CO conversion, CO oxidation and H2 oxidation. |
-| `sch6step_n-edm` | Same six global steps as `sch6step-edm`, with additional transported nitrogen species for reactor-network-based NOx evaluation. |
-
 ## Mechanisms
 
 | File | Mechanism | Source | Short description |
