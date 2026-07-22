@@ -12,6 +12,12 @@ Reaction mechanism(s) for **ANSYS Fluent** (Fluent User-Defined Material Databas
 | [`sch6step-edm.scm`](./sch6step-edm.scm)  | [Scharler et al. (2021)](https://doi.org/10.1016/j.enconman.2021.114755) | Global six-step gas-phase reaction scheme for biomass/gasification gas combustion in Fluent. It includes a lumped tar pseudo-species, light gas formation, ethylene and methane conversion, char-to-CO conversion, CO oxidation and H2 oxidation. |
 | [`sch6step_n-edm.scm`](./sch6step_n-edm.scm)  | Based on the Scharler six-step scheme: [Scharler et al. (2021)](https://doi.org/10.1016/j.enconman.2021.114755). Repository extension for reactor-network coupling. | Variant of `sch6step-edm` with additional nitrogen species (`hcn`, `nh3`, `no`, `n2`). Intended for use with a reactor network to determine NOx emissions. The six global gas-phase reactions remain the same core oxidation scheme; detailed NOx conversion is expected to be handled in the reactor-network workflow. |
 
+## Modeling notes
+
+- In the cited biomass paper, `C` in the tar-cracking equation is explicitly `C(soot)`, not gaseous atomic carbon. It is also absent from the paper's gas-phase species list: the authors use the Moss-Brookes soot model and add tar-derived soot to its soot transport equation. `c` is retained here only as a numerical pseudo-species for compatibility with the existing volumetric reactions; reproducing the paper exactly requires a soot-source implementation instead of a gas-phase `c` material.
+- `Li37.scm` includes the original Li37 PLOG pressure tables for reactions R18, R21-R23, R26-R27, R43, R65-R66, R76-R81 and R83-R87. PLOG pressures are in atm; Arrhenius factors and activation energies are stored in Fluent SI units.
+- In the global mechanisms, zero-stoichiometry product entries are not removed blindly: `h2o` in CO oxidation has a finite-rate exponent of 0.5, while the zero-order `co2` product placeholders in the three-step mechanism are retained for the EDM product-side formulation.
+
 ## Usage (ANSYS Fluent)
 
 1. In Fluent, open **Materials** → **Fluent Database** → **User-Defined…**

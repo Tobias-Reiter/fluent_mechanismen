@@ -46,18 +46,20 @@
 		(speed-of-sound (none . #f))
 	)
 
+	; Graphite/soot surrogate: C(gr) Cp from NASA/TP-2002-211556,
+	; NASA-9 coefficients converted to J/(kg K) with M = 12.01115 kg/kmol.
 	(c fluid
 		(chemical-formula . c)
-		(specific-heat (polynomial piecewise-polynomial (300. 1000. 7078871.524556264 0. 0. 0. 0.) (1000. 5000. 7078871.524556264 0. 0. 0. 0.)))
+		(specific-heat (polynomial nasa-9-piecewise-polynomial (200. 600. 78419594.98251373 -1370904.701181556 9451.581064713633 -32.09238960843327 0.07069960112599870 -7.496097256506351e-05 3.095825887627299e-08) (600. 2000. 232312253.3088207 -1797391.428190510 4810.187725584275 -2.412303518039180 0.001276602918507647 -3.499358594429798e-07 3.980757302934254e-11) (2000. 6000. 140045139.5281214 -787919.5503932356 2561.439627302029 -0.1269414318780638 4.391279539721830e-05 -4.893080428979012e-09 2.308884475754055e-13)))
 		(molecular-weight (constant . 12.01115))
-		(formation-enthalpy (constant . 716710000.))
-		(reference-temperature (constant . 298.))
-		(formation-entropy (constant . 157995.))
+		(formation-enthalpy (constant . 0.))
+		(reference-temperature (constant . 298.15))
+		(formation-entropy (constant . 5833.))
 		(thermal-conductivity (constant . 0.33) (kinetic-theory . #f))
 		(viscosity (constant . 1.72e-05) (kinetic-theory . #f))
-		(lennard-jones-length (constant . 2.05))
-		(lennard-jones-energy (constant . 145.))
-		(density (constant . 2000))
+		(lennard-jones-length (constant . 3.385))
+		(lennard-jones-energy (constant . 30.6))
+		(density (constant . 1800.))
 		(absorption-coefficient (constant . 0))
 		(scattering-coefficient (constant . 0))
 		(scattering-phase-function (isotropic . #f))
