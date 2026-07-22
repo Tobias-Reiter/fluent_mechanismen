@@ -1,4 +1,4 @@
-# Material-Mechanism
+# Mechanism
 
 Reaction mechanism(s) for **ANSYS Fluent** (Fluent User-Defined Material Database / UDF material format) in Scheme.
 
