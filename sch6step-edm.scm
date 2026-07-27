@@ -21,7 +21,7 @@
 		(specific-heat (mixing-law . #f))
 		(thermal-conductivity (ideal-gas-mixing-law . #f) (constant . 0.0454))
 		(viscosity (ideal-gas-mixing-law . #f) (constant . 1.72e-05))
-		(mass-diffusivity (constant-dilute-appx 2.88e-05))
+		(mass-diffusivity (kinetic-theory . #f))
 		(speed-of-sound (none . #f))
 		(absorption-coefficient (wsggm-domain-based . #f) (constant . 0))
 		(scattering-coefficient (constant . 0.))
@@ -127,6 +127,8 @@
 		(critical-temperature (constant . 132.85))
 		(acentric-factor (constant . 0.045))
 		(critical-volume (constant . 0.003324))
+		(lennard-jones-length (constant . 3.69))
+		(lennard-jones-energy (constant . 91.7))
 		(therm-exp-coeff (constant . 0))
 		(speed-of-sound (none . #f))
 		(scattering-coefficient (constant . 0))
@@ -193,6 +195,8 @@
 		(specific-heat (constant . 1800.) (polynomial piecewise-polynomial (300 1000 -255.31682 8.2869107 -0.010042929 8.254278799999999e-06 -2.8859883e-09) (1000 5000 1045.7077 3.4038325 -0.0013094647 2.3248826e-07 -1.5609214e-11)) (polynomial nasa-9-piecewise-polynomial (200. 1000. -34487490. 757216.6 -4771.022 19.63769 -0.02337004 1.519028e-05 -4.061447e-09) (1000. 6000. 1010287000. -4074778. 7012.074 -0.7183513 0.0001313322 -1.289961e-08 5.261441e-13)))
 		(thermal-conductivity (constant . 0.0332))
 		(viscosity (constant . 1.087e-05))
+		(lennard-jones-length (constant . 3.746))
+		(lennard-jones-energy (constant . 141.4))
 		(molecular-weight (constant . 56.6572))
 		(formation-enthalpy (constant . -219000000.))
 		(reference-temperature (constant . 298.))
@@ -215,6 +219,8 @@
 		(specific-heat (polynomial piecewise-polynomial (300 1000 -255.31682 8.2869107 -0.010042929 8.254278799999999e-06 -2.8859883e-09) (1000 5000 1045.7077 3.4038325 -0.0013094647 2.3248826e-07 -1.5609214e-11)) (constant . 2233) (polynomial nasa-9-piecewise-polynomial (200. 1000. -34487490. 757216.6 -4771.022 19.63769 -0.02337004 1.519028e-05 -4.061447e-09) (1000. 6000. 1010287000. -4074778. 7012.074 -0.7183513 0.0001313322 -1.289961e-08 5.261441e-13)))
 		(thermal-conductivity (constant . 0.0214))
 		(viscosity (constant . 1.03e-05))
+		(lennard-jones-length (constant . 4.163))
+		(lennard-jones-energy (constant . 224.7))
 		(molecular-weight (constant . 28.05418))
 		(formation-enthalpy (constant . 52455400))
 		(reference-temperature (constant . 298.15))
@@ -231,21 +237,25 @@
 		(speed-of-sound (none . #f))
 	)
 
-	; Graphite/soot surrogate: C(gr) Cp from NASA/TP-2002-211556,
-	; NASA-9 coefficients converted to J/(kg K) with M = 12.01115 kg/kmol.
+	; Soot pseudo-species based on CRECK CSOLID.
+	; Thermo and transport source: CRECK Modeling Lab, Kinetic-Mechanisms,
+	; Gas-Phase/Diesel-Biodiesel/Soot-NOx/TOT_HT_SOOT_452_24041
+	; (thermo.CHEMKIN.CKT and TOT2003.TRAN: sigma = 12.91 Angstrom,
+	; epsilon/k = 2302 K). Soot density 1500 kg/m3 from Pejpichestakul
+	; et al., Combust. Flame 205 (2019) 135-146,
+	; https://doi.org/10.1016/j.combustflame.2019.04.001.
 	(c fluid
 		(chemical-formula . c)
-		(density (constant . 1800.))
-		(molecular-weight (constant . 12.01115))
+		(density (constant . 1500.))
+		(molecular-weight (constant . 12.011))
 		(characteristic-vibrational-temperature (constant . 0))
-		(specific-heat (polynomial nasa-9-piecewise-polynomial (200. 600. 78419594.98251373 -1370904.701181556 9451.581064713633 -32.09238960843327 0.07069960112599870 -7.496097256506351e-05 3.095825887627299e-08) (600. 2000. 232312253.3088207 -1797391.428190510 4810.187725584275 -2.412303518039180 0.001276602918507647 -3.499358594429798e-07 3.980757302934254e-11) (2000. 6000. 140045139.5281214 -787919.5503932356 2561.439627302029 -0.1269414318780638 4.391279539721830e-05 -4.893080428979012e-09 2.308884475754055e-13)))
-		(thermal-conductivity (constant . 0.33))
-		(viscosity (constant . 1.72e-05) (blottner-curve-fit -0.00714 0.768602 -12.956246))
-		(lennard-jones-length (constant . 3.385))
-		(lennard-jones-energy (constant . 30.6))
+		(specific-heat (polynomial piecewise-polynomial (300. 1500. -614.364983 5.789440468 -5.294541758e-03 2.297258810e-06 -3.808483725e-10) (1500. 3500. 1324.871794 0.618142404 -1.232436872e-04 -1.095885866e-09 2.210743514e-12)))
+		(thermal-conductivity (kinetic-theory . #f))
+		(viscosity (kinetic-theory . #f))
+		(lennard-jones-length (constant . 12.91))
+		(lennard-jones-energy (constant . 2302.))
 		(vaporization-temperature (constant . 400))
 		(boiling-point (constant . 400))
-		(binary-diffusivity (constant . 4e-05))
 		(volatile-fraction (constant . 0))
 		(combustible-fraction (constant . 1))
 		(swelling-coefficient (constant . 1))
@@ -257,7 +267,7 @@
 		(formation-enthalpy (constant . 0.))
 		(reference-temperature (constant . 298.15))
 		(combustion-model (diffusion-limited . #f) (kinetics/diffusion-limited 5e-12 0.002 79000000) (intrinsic-model 5e-12 0.030198 179400000. 0.5 5.999999999999999e-08 300000 1.4142136 0) (cbk -1. 10.))
-		(formation-entropy (constant . 5833.))
+		(formation-entropy (constant . 5708.9514))
 		(absorption-coefficient (constant . 0))
 		(scattering-coefficient (constant . 0))
 		(scattering-phase-function (isotropic . #f))

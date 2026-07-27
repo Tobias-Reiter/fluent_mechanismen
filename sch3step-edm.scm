@@ -18,7 +18,7 @@
 		(specific-heat (mixing-law . #f))
 		(thermal-conductivity (ideal-gas-mixing-law . #f) (constant . 0.0454))
 		(viscosity (ideal-gas-mixing-law . #f) (constant . 1.72e-05))
-		(mass-diffusivity (constant-dilute-appx 2.88e-05))
+		(mass-diffusivity (kinetic-theory . #f))
 		(speed-of-sound (none . #f))
 		(absorption-coefficient (wsggm-domain-based . #f) (constant . 0))
 		(scattering-coefficient (constant . 0.))
