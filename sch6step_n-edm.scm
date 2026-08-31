@@ -34,7 +34,7 @@
 	; et al., Combust. Flame 205 (2019) 135-146,
 	; https://doi.org/10.1016/j.combustflame.2019.04.001.
 	(csoot fluid
-		(chemical-formula . c)
+		(chemical-formula . c<s>)
 		(density (constant . 1500.))
 		(molecular-weight (constant . 12.011))
 		(characteristic-vibrational-temperature (constant . 0))

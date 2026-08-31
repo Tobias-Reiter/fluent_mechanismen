@@ -54,7 +54,7 @@
 	; et al., Combust. Flame 205 (2019) 135-146,
 	; https://doi.org/10.1016/j.combustflame.2019.04.001.
 	(csoot fluid
-		(chemical-formula . c)
+		(chemical-formula . c<s>)
 		(specific-heat (polynomial piecewise-polynomial (300. 1500. -614.364983 5.789440468 -5.294541758e-03 2.297258810e-06 -3.808483725e-10) (1500. 3500. 1324.871794 0.618142404 -1.232436872e-04 -1.095885866e-09 2.210743514e-12)))
 		(molecular-weight (constant . 12.011))
 		(formation-enthalpy (constant . 0.))
