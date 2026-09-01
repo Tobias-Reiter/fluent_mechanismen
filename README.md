@@ -18,9 +18,3 @@ Reaction mechanism(s) for **ANSYS Fluent** (Fluent User-Defined Material Databas
 2. Load the `.scm` file (e.g. `sch6step-edm.scm`).
 3. Assign the created mixture/material to the appropriate cell zone(s).
 4. Enable Species Transport and select the reaction mechanism.
-
-## Validierter Reactor-Network-Vergleich
-
-Der bereinigte, reproduzierbare Li37–Glarborg148-Vergleich mit
-`Solve Temperature`, vollständigen PLOG-Reaktionen und Teerreaktion liegt in
-[`Comparison_Li_Glaborg`](./Comparison_Li_Glaborg/).
