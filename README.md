@@ -1,6 +1,6 @@
 # Mechanism
 
-Reaction mechanism(s) for **ANSYS Fluent** (Fluent User-Defined Material Database / UDF material format) in Scheme.
+Reaction mechanisms for **ANSYS Fluent** (Fluent User-Defined Material Database) in Scheme.
 
 ## Mechanisms
 
